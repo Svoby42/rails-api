@@ -6,7 +6,9 @@ module CreateSession
     user = User.find_by(id: user_id)
     session = user.sessions.build
     if user && session.save
-      return JsonWebToken.encode({user_id: user_id, token: session.token})
+      JsonWebToken.encode({user_id: user_id, token: session.token})
+    else
+      nil
     end
   end
 end
