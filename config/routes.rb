@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     delete "destroy", to: "registrations#destroy"
   end
 
-  get '/*a', to: 'application#not_found'
+  match '*foo', to: 'application#not_found', via: :get
 end

@@ -4,7 +4,6 @@ class RegistrationsController < ApplicationController
 
   def create
     @user = User.new(registration_params)
-
     if @user.save
       @token = jwt_session_create @user.id
       if @token
